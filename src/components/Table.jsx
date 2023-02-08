@@ -1,11 +1,17 @@
 import React, { useEffect, useState, forwardRef } from 'react';
 import MaterialTable from "material-table";
-import { ThemeProvider, createTheme } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 
-import { ArrowDownward, ChevronLeft, ChevronRight, Clear, FilterList, FirstPage, LastPage, Search }
-    from '@material-ui/icons';
-
+import ArrowDownward from '@material-ui/icons/ArrowDownward';
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import ChevronRight from '@material-ui/icons/ChevronRight';
+import Clear from '@material-ui/icons/Clear';
+import FilterList from '@material-ui/icons/FilterList';
+import FirstPage from '@material-ui/icons/FirstPage';
+import LastPage from '@material-ui/icons/LastPage';
 import ListingService from '../services/ListingService';
+import Search from '@material-ui/icons/Search';
 
 export default function Table() {
 
