@@ -10,7 +10,9 @@ import ListingService from '../services/ListingService';
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-function Nav() {
+function Nav({ data }) {
+
+
     return (
         <Navbar>
             <div className="nav-icon">

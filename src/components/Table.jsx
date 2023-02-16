@@ -10,7 +10,7 @@ import Clear from '@material-ui/icons/Clear';
 import FilterList from '@material-ui/icons/FilterList';
 import FirstPage from '@material-ui/icons/FirstPage';
 import LastPage from '@material-ui/icons/LastPage';
-import ListingService from '../services/ListingService';
+
 import Search from '@material-ui/icons/Search';
 
 import '../index.css';
