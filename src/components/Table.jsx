@@ -13,7 +13,9 @@ import LastPage from '@material-ui/icons/LastPage';
 import ListingService from '../services/ListingService';
 import Search from '@material-ui/icons/Search';
 
-export default function Table() {
+import '../index.css';
+
+export default function Table({ data }) {
 
     const defaultMaterialTheme = createTheme();
 
@@ -47,15 +49,15 @@ export default function Table() {
             render: (rowData) => {
                 return (
                     <div>
-                        < h6 > {rowData.model}</h6 >
-                        < h6 > {rowData.brand}</h6 >
-                        < h6 > {rowData.chipSet}</h6 >
+                        < h4 > {rowData.model}</h4 >
+                        < h4 > {rowData.brand}</h4 >
+                        < h4 > {rowData.chipSet}</h4 >
                     </div>
                 )
             }
         },
         {
-            title: "Price", field: "price", cellStyle: {
+            title: "Sort By Price", field: "price", cellStyle: {
                 backgroundColor: '#f1f1f1',
                 color: '#000000',
                 borderTopRightRadius: 15,
@@ -65,7 +67,7 @@ export default function Table() {
                 return (
                     <div>
                         <div className="price" style={{ color: 'red', fontSize: 20, paddingBottom: 20 }}>
-                            <span style={{ fontSize: 14 }}>$</span>
+                            <span style={{ fontSize: 18 }}>$</span>
                             <span >{rowData.price}</span>
                         </div>
                     </div>
@@ -74,50 +76,33 @@ export default function Table() {
         },
     ]
 
-    const [data, setData] = useState([
-        {
-            id: "",
-            brand: "",
-            chipSet: "",
-            model: "",
-            price: null,
-            url: "",
-            date: "",
-            image: ""
-        }
-    ]);
-
-    useEffect(() => {
-
-        ListingService.getAll("https://instock-gpu.azurewebsites.net/api/listings/get-listings/current-date")
-            .then(result => result.data)
-            .then(result => setData(result))
-
-    }, []);
-
     return (
-        <ThemeProvider theme={defaultMaterialTheme}>
-            <MaterialTable
-                onRowClick={(event, rowData) => {
-                    window.open(rowData.url)
-                    event.stopPropagation();
-                }}
-                icons={tableIcons}
-                title=""
-                columns={columns}
-                data={data}
-                options={{
-                    search: true,
-                    paging: true,
-                    pageSize: 50,
-                    emptyRowsWhenPaging: false,
-                    pageSizeOptions: [50],
-                    rowStyle: { borderBottom: '10px solid white' },
-                    tableLayout: 'auto'
-                }}>
+        <div className='container'>
+            <ThemeProvider theme={defaultMaterialTheme}>
+                <div className='inner-container'>
+                    <MaterialTable
+                        onRowClick={(event, rowData) => {
+                            window.open(rowData.url)
+                            event.stopPropagation();
+                        }}
+                        icons={tableIcons}
+                        title=""
+                        columns={columns}
+                        data={data}
+                        options={{
+                            search: true,
+                            paging: true,
+                            pageSize: 50,
+                            emptyRowsWhenPaging: false,
+                            pageSizeOptions: [50],
+                            rowStyle: { borderBottom: '10px solid white' },
+                            tableLayout: 'auto'
+                        }}>
 
-            </MaterialTable>
+                    </MaterialTable>
+                </div>
 
-        </ThemeProvider>
+            </ThemeProvider>
+        </div>
     )
 }
