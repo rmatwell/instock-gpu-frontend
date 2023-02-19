@@ -1,18 +1,11 @@
-import React, { useEffect, useState, forwardRef } from 'react';
-
-import "@fortawesome/fontawesome-free/css/all.css";
-import "@fortawesome/fontawesome-free/js/all.js";
+import React, { useEffect, useState } from 'react';
 
 import ListingService from './services/ListingService';
 import Nav from "./components/Nav"
 import Table from "./components/Table";
 import './index.css';
 
-
 function App() {
-
-  function filterData() { return data.filter(listing => listing.brand === 'ASUS') };
-
 
   const [data, setData] = useState([
     {
@@ -27,20 +20,7 @@ function App() {
     }
   ]);
 
-  const [filteredData, setFilteredData] = useState('');
-
-  useEffect(() => {
-    console.log('ASUS');
-    setFilteredData(filterData());
-    console.log(filterData());
-
-  }, [data]);
-
-
-  useEffect(() => {
-    console.log('filtered data')
-    console.table(filteredData)
-  }, [filteredData]);
+  const [filteredData, setFilteredData] = useState([{ data }]);
 
   useEffect(() => {
     ListingService.getAll("")
@@ -49,17 +29,16 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.table(data)
+    setFilteredData(data);
+    console.log(filteredData);
   }, [data]);
 
   return (
     <div>
-      <Nav data={data} />
+      <Nav data={data} setFilteredData={setFilteredData} />
       <Table data={filteredData} />
     </div>
   );
 }
-
-
 
 export default App;

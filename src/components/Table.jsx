@@ -57,7 +57,7 @@ export default function Table({ data }) {
             }
         },
         {
-            title: "Sort By Price", field: "price", cellStyle: {
+            title: "Price", field: "price", cellStyle: {
                 backgroundColor: '#f1f1f1',
                 color: '#000000',
                 borderTopRightRadius: 15,
