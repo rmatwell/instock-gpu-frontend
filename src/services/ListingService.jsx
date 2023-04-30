@@ -2,7 +2,7 @@ import http from "../http-common";
 import download from 'js-file-download';
 
 const getAll = () => {
-    return http.get("/get-listings/current-date");
+    return http.get("/current-date");
 };
 
 const downloadFile = () => {

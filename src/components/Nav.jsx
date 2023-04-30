@@ -95,16 +95,11 @@ function Nav({ data, setFilteredData }) {
                         <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
                             <h3>Brands</h3>
                         </DropdownItem>
-                        <BrandList >ASUS</BrandList>
+
                         {sortedBrands.map((value) => (
                             <BrandList key={value}>{value}</BrandList>
                         ))
                         }
-
-                        {/* <BrandList>Gigabyte</BrandList>
-                        <BrandList>MSI</BrandList>
-                        <BrandList>PNY</BrandList>
-                        <BrandList>Zotac</BrandList> */}
                     </div>
                 </CSSTransition>
             </div>

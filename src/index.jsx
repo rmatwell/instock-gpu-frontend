@@ -15,11 +15,4 @@ root.render(
   </BrowserRouter>
 );
 
-// ReactDOM.render(
-//   <BrowserRouter>
-//     <App />
-//   </BrowserRouter>,
-//   document.getElementById("root")
-// );
-
 reportWebVitals();
